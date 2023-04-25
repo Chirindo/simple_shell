@@ -20,7 +20,6 @@ int (*is_builtin(char *cmd))()
 		{"exit", _exit_with_grace},
 		{"history", _history},
 		{"setenv", _setenv_usr},
-		{"bowie", bowie},
 		{NULL, NULL}
 	};
 

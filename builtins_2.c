@@ -49,35 +49,4 @@ int _history(void)
 	simple_print("\t'history -c' clears the history\n");
 	return (0);
 }
-/**
-  * bowie - easter egg. Displays ASCII picture of Bowie
-  * Return: 1947, the year Bowie was born
-  */
-int bowie(void)
-{
-	int txt_file, total, read_status;
-	size_t letters = 7483;
-	char *filename = "bowie.txt";
-	char buffer[BUFSIZE];
 
-	if (filename == NULL)
-		return (0);
-	txt_file = open(filename, O_RDONLY);
-	if (txt_file == -1)
-		return (0);
-	total = 0;
-	read_status = 1;
-	while (letters > BUFSIZE && read_status != 0)
-	{
-		read_status = read(txt_file, buffer, BUFSIZE);
-		write(STDOUT_FILENO, buffer, read_status);
-		total += read_status;
-		letters -= BUFSIZE;
-	}
-	read_status = read(txt_file, buffer, letters);
-	write(STDOUT_FILENO, buffer, read_status);
-	total += read_status;
-	close(txt_file);
-	return (1947);
-/**	return (total); */
-}
